@@ -26,33 +26,6 @@ img {
     opacity: 1;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 li {
     padding: 2.5rem 0rem 0.5rem;
     list-style: none;
@@ -63,23 +36,45 @@ nav {
     display: flex;
     margin: 0 auto;
     width: 95%;
+    z-index: 2;
 }
 
-.features-dropdown, .company-dropdown {
-    border-radius: 10px;
-    box-shadow: 0px 0px 40px #cbcbcb;
-    display: block;
-    padding: 0.5rem;
-    position: absolute;
+.arrow, .arrow2 {
+    margin-left: 0.5rem;
+}
+
+.arrow.toggle, .arrow2.toggle {
+    transform: scaleY(-1);
+}
+
+.black-bg {
+    display: none;
 }
 
 .company-dropdown {
     width: 110px;
 }
 
+.features, .company {
+    align-items: center;
+    border: 1px solid black;
+    display: flex;
+    padding-bottom: 1.5rem;
+}
+
+.features-dropdown, .company-dropdown {
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px #cbcbcb;
+    display: none;
+    padding: 0.5rem;
+    position: absolute;
+    top: 25px;
+}
+
 .features-dropdown {
+    left: -70px;
     width: 150px;
-    left: 80px;
 }
 
 .features-dropdown span, .nav-link, .dropdown-link {
@@ -90,24 +85,19 @@ nav {
     opacity: 1;
 }
 
-
-
-
 .features-dropdown li, .company-dropdown li {
     margin: 1.5rem 0rem 1.5rem 1rem;
+}
+
+.features-dropdown img, .company-dropdown img {
+    margin-right: 0.5rem;
+    position: relative;
+    top: 2px;
 }
 
 .features-dropdown a, .company-dropdown a {
     margin-right: 0rem;
 }
-
-
-
-.features, .company {
-    align-items: center;
-    display: flex;
-}
-
 
 .hamburger {
     display: none;
@@ -125,24 +115,21 @@ nav {
     display: flex;
 }
 
-.left img {
-    margin-right: 0.5rem;
-    position: relative;
-    top: 2px;
-}
-
 .logo {
-    padding: 2.5rem 0rem 2rem 0rem;
+    padding: 3rem 0rem  0rem;
     margin-right: 3rem;
+
 }
 
 .nav-links{
     align-items: center;
     display: flex;
     justify-content: space-between;
+    margin-top: 2rem;
     width: 100%;
+    position: relative;
+    top: 10px;
 }
-
 
 .nav-links li {
     padding: 0;
@@ -152,6 +139,11 @@ nav {
     border: 2px solid black;
     border-radius: 15px;
     padding: 1rem 1.5rem;
+}
+
+.right {
+    position: relative;
+    bottom: 7px;
 }
 
 .right li {
@@ -174,16 +166,43 @@ nav {
     nav {
         background-color: cyan;
         justify-content: space-between;
+        width: 90%;
     }
 
     .bar1, .bar2, .bar3 {
         background-color: black;
         border-radius: 10px;
-        width: 2.5rem;
         height: 3px;
+        position: relative;
+        width: 2.5rem;
     }
 
-    
+    .bar1.toggle {
+        rotate: 45deg;
+        top: 10.5px;
+    }
+
+    .bar2.toggle {
+        display: none;
+    }
+
+    .bar3.toggle {
+        rotate: -45deg;
+        bottom: 10.5px;
+    }
+
+    .black-bg {
+        background-color: rgba(0, 0, 0, 0.6);
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        z-index: 5;
+    }
+
+    .features-dropdown, .company-dropdown {
+        position: relative;
+        left: 0;
+    }
 
 
     .hamburger {
@@ -191,11 +210,23 @@ nav {
         flex-direction: column;   
         height: 25px;
         justify-content: space-between;
+        z-index: 4;
+    }
+
+    .left, .right {
+        flex-direction: column;
     }
 
     .nav-links {
-        display: none;
+        background-color: yellow;
+        flex-direction: column;
+        height: 100%;
+        padding: 6rem 0rem;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 65%;
+        z-index: 3;
     }
 
 }
-
