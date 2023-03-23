@@ -57,13 +57,11 @@ nav {
 
 .features, .company {
     align-items: center;
-    border: 1px solid black;
     display: flex;
     padding-bottom: 1.5rem;
 }
 
 .features-dropdown, .company-dropdown {
-    border: 1px solid black;
     border-radius: 10px;
     box-shadow: 0px 0px 40px #cbcbcb;
     display: none;
@@ -116,9 +114,8 @@ nav {
 }
 
 .logo {
-    padding: 3rem 0rem  0rem;
+    padding: 2.5rem 0rem  0rem;
     margin-right: 3rem;
-
 }
 
 .nav-links{
@@ -177,6 +174,10 @@ nav {
         width: 2.5rem;
     }
 
+    .arrow.toggle, .arrow2.toggle {
+        transform: scaleY(-1);
+    }
+
     .bar1.toggle {
         rotate: 45deg;
         top: 10.5px;
@@ -199,17 +200,26 @@ nav {
         z-index: 5;
     }
 
+    .features.toggle, .company.toggle {
+        opacity: 1;
+    }
+
     .features-dropdown, .company-dropdown {
         position: relative;
         left: 0;
     }
 
+    .features-dropdown.toggle, .company-dropdown.toggle {
+        display: block;
+    }
 
     .hamburger {
         display: flex;
         flex-direction: column;   
         height: 25px;
         justify-content: space-between;
+        position: relative;
+        top: 17px;
         z-index: 4;
     }
 
