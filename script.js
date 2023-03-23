@@ -51,3 +51,11 @@ document.querySelector('.company-dropdown').addEventListener('mouseout', () => {
     document.querySelector('.arrow2').style.transform = 'scaleY(1)';
     document.querySelector('.company-dropdown').style.display = 'none';
 });
+
+
+
+features.addEventListener('click', () => {
+    features.classList.toggle('toggle');
+    document.querySelector('.arrow').classList.toggle('toggle');
+    document.querySelector('.features-dropdown').classList.toggle('toggle');
+});
