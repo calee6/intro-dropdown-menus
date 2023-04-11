@@ -61,24 +61,3 @@ document.querySelector('.company-dropdown').addEventListener('mouseout', () => {
 
 
 
-
-
-
-//Mouseover Company: Mobile Version
-
-
-    if (mobileScreen.matches) {
-        //Mouseover Features: Mobile Version
-        features.addEventListener('click', () => {
-            features.classList.toggle('toggle');
-            document.querySelector('.arrow').classList.toggle('toggle');
-            document.querySelector('.features-dropdown').classList.toggle('toggle');
-        });
-
-        //Mouseover Company: Mobile Version
-        company.addEventListener('click', () => {
-            company.classList.toggle('toggle');
-            document.querySelector('.arrow2').classList.toggle('toggle');
-            document.querySelector('.company-dropdown').classList.toggle('toggle');
-        });
-    }
