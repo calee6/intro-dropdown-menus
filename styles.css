@@ -4,6 +4,10 @@
     --almost-black: #141414;
 }
 
+html {
+    overflow: hidden;
+}
+
 html, body {
     display: flex;
     flex-direction: column;
@@ -27,109 +31,127 @@ img {
 }
 
 li {
-    padding: 2.5rem 0rem 0.5rem;
     list-style: none;
 }
 
 nav {
     align-items: center;
     display: flex;
-    margin: 0 auto;
+    margin: 30px auto 0px auto;
     width: 95%;
     z-index: 2;
 }
 
+
+
 .arrow, .arrow2 {
-    margin-left: 0.5rem;
+    margin-left: 5px;
 }
 
 .arrow.toggle, .arrow2.toggle {
     transform: scaleY(-1);
 }
 
-.black-bg {
-    display: none;
+.bar1, .bar2, .bar3 {
+    background-color: black;
+    border-radius: 10px;
+    height: 3px;
+    position: relative;
+    width: 2.5rem;
 }
 
-.company-dropdown {
-    width: 110px;
+.company-dropdown-menu {
+    height: 110px;
+}
+
+.dropdown-link {
+    opacity: 0.5;
+}
+
+.dropdown-link:hover {
+    opacity: 1;
 }
 
 .features, .company {
     align-items: center;
     display: flex;
-    padding-bottom: 1.5rem;
+    padding-bottom: 30px;
 }
 
-.features-dropdown, .company-dropdown {
+.features-dropdown-menu {
+    height: 150px;
+    width: 120px;
+    margin-left: 0; 
+    left: -70px;
+}
+
+.features-dropdown-menu a {
+    align-items: center;
+    display: flex;
+}
+
+.features-dropdown-menu img {
+    margin-right: 15px;
+}
+
+
+.features-dropdown-menu, .company-dropdown-menu {
     border-radius: 10px;
     box-shadow: 0px 0px 40px #cbcbcb;
     display: none;
-    padding: 0.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0px;
+    padding: 1.7rem;
     position: absolute;
-    top: 25px;
+    top: 40px;
 }
 
-.features-dropdown {
-    left: -70px;
-    width: 150px;
-}
 
-.features-dropdown span, .nav-link, .dropdown-link {
-    opacity: 0.5;
-}
 
-.features-dropdown span:hover {
-    opacity: 1;
-}
-
-.features-dropdown li, .company-dropdown li {
-    margin: 1.5rem 0rem 1.5rem 1rem;
-}
-
-.features-dropdown img, .company-dropdown img {
-    margin-right: 0.5rem;
-    position: relative;
-    top: 2px;
-}
-
-.features-dropdown a, .company-dropdown a {
-    margin-right: 0rem;
-}
 
 .hamburger {
     display: none;
+    flex-direction: column;   
+    height: 25px;
+    justify-content: space-between;
+    position: relative;
 }
 
 .hamburger:hover {
     cursor: pointer;
 }
 
-.left .nav-link {
-    margin-right: 3rem;
-}
-
 .left, .right {
+    align-items: baseline;
     display: flex;
 }
 
+.left .nav-link {
+    margin-right: 2rem;
+}
+
 .logo {
-    padding: 2.5rem 0rem  0rem;
+    padding: 0.5rem 0rem  0rem;
     margin-right: 3rem;
+}
+
+.nav-link {
+    opacity: 0.5;
 }
 
 .nav-links{
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
     width: 100%;
     position: relative;
-    top: 10px;
+    top: 15px;
 }
 
-.nav-links li {
-    padding: 0;
+.nav-links-container {
+    height: 100%;
+    width: 100%;
 }
 
 .register {
@@ -138,17 +160,15 @@ nav {
     padding: 1rem 1.5rem;
 }
 
+
+
 .right {
-    position: relative;
-    bottom: 7px;
+    margin-bottom: 30px;
 }
 
-.right li {
-    margin-left: 3rem;
+.right .nav-link {
+    margin-right: 2rem;
 }
-
-
-
 
 
 
@@ -159,84 +179,134 @@ nav {
 
 
 /*********************************************************MEDIA QUERY*********************************************************/
+
 @media (max-width: 950px) {
+
+    /*NAV BAR*/
     nav {
-        background-color: cyan;
         justify-content: space-between;
+        margin: 35px auto 0px auto;
         width: 90%;
     }
 
-    .bar1, .bar2, .bar3 {
-        background-color: black;
-        border-radius: 10px;
-        height: 3px;
-        position: relative;
-        width: 2.5rem;
+    .hamburger {
+        display: flex;
+        z-index: 5;
     }
 
-    .arrow.toggle, .arrow2.toggle {
-        transform: scaleY(-1);
+    .arrow, .arrow2 {
+        margin-left: 15px;
     }
 
     .bar1.toggle {
         rotate: 45deg;
         top: 10.5px;
+        transition: rotate 0.5s, top 0.5s;
     }
-
+    
+    
     .bar2.toggle {
-        display: none;
+        transition: opacity 0.5s;
+        opacity: 0;
     }
-
+    
     .bar3.toggle {
+        transition: rotate 0.5s, bottom 0.5s;
         rotate: -45deg;
         bottom: 10.5px;
     }
 
     .black-bg {
-        background-color: rgba(0, 0, 0, 0.6);
+        transition: display 0.5s ease;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: none;
         height: 100%;
         position: absolute;
+        top: 0px;
         width: 100%;
-        z-index: 5;
     }
 
-    .features.toggle, .company.toggle {
-        opacity: 1;
-    }
-
-    .features-dropdown, .company-dropdown {
-        position: relative;
-        left: 0;
-    }
-
-    .features-dropdown.toggle, .company-dropdown.toggle {
+    .black-bg.toggle {
         display: block;
     }
 
-    .hamburger {
-        display: flex;
-        flex-direction: column;   
-        height: 25px;
+    .features-dropdown-menu {
+        height: 150px;
+        width: 120px;
+        margin-left: 0; 
+        left: 0px;
+    }
+
+    .features-dropdown-menu, .company-dropdown-menu {
+        box-shadow: 0px 0px 0px #cbcbcb;
+        flex-direction: column;
         justify-content: space-between;
+        margin: 0px;
+        padding: 0rem 1.7rem 1.7rem;
         position: relative;
-        top: 17px;
-        z-index: 4;
+        top: 0px;
     }
 
-    .left, .right {
-        flex-direction: column;
-    }
-
-    .nav-links {
-        background-color: yellow;
-        flex-direction: column;
+    .nav-links-container {
+        transition: transform 0.5s;
+        transform: translateX(1000px);
+        background-color: white;
         height: 100%;
-        padding: 6rem 0rem;
+        width: 50%;
+        padding: 0px 30px;
         position: absolute;
         top: 0px;
         right: 0px;
-        width: 65%;
-        z-index: 3;
+        z-index: 4;
     }
+
+    .nav-links-container.toggle {
+        transform: translateX(0px);
+    }
+
+    .left .nav-link, .right .nav-link {
+        margin-right: 0rem;
+    }
+
+    .right li{
+        margin-top: 25px;
+        width: 100%;
+    }
+
+    .careers-and-about {
+        margin-bottom: 30px;
+    }
+
+    .nav-links{
+        align-items: start;
+        flex-direction: column;
+        justify-content: start;
+        height: 100%;
+        width: 100%;
+        padding-top: 110px;
+        position: relative;
+        top: 0px;
+        right: 0px;
+    }
+
+    .left, .right {
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+        width: 100%;
+    }
+
+    .register {
+        display: block;
+        padding: 1rem 0rem;
+        width: 100%;
+    }
+
+    .right {
+        text-align: center;
+    }
+
+    /*MAIN WEBSITE*/
+
 
 }
